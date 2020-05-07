@@ -1,15 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary main-nav">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <input class="form-control mr-sm-2" type="search" placeholder="Enter your name (Last, First)" aria-label="Search" name="search">
+    <input [(ngModel)]="nameParams" class="form-control mr-sm-2" type="search" placeholder="Enter your name (Last, First)" aria-label="Search" name="search">
   </div>
 </nav>
 
 <ul class="nav justify-content-end nav-action-container">
   <li class="nav-item">
-    <button mat-raised-button color="primary">Add Test</button>
+    <button mat-raised-button color="primary" (click)="addTest()">Add Test</button>
   </li>
   <li class="nav-item">
-    <button mat-raised-button color="primary">Compute Grade</button>
+    <button mat-raised-button color="primary" (click)="calculateGrade()">Compute Grade</button>
   </li>
 </ul>
 
@@ -19,38 +19,38 @@
       <mat-card-content>
         <p>
           <label for="id">ID:</label>
-          <input type="text" class="form-control" placeholder="ID" aria-label="id">
+          <input [(ngModel)]="test.id" type="text" class="form-control" placeholder="ID" aria-label="id">
         </p>
         <p>
           <label for="first">Test Name:</label>
-          <input type="text" class="form-control" placeholder="Test Name" aria-label="test name"
+          <input [(ngModel)]="test.testName" type="text" class="form-control" placeholder="Test Name" aria-label="test name"
             aria-describedby="basic-addon1">
         </p>
         <p>
           <label for="email">Points Possible</label>
-          <input type="text" class="form-control" placeholder="Points Possible" aria-label="points possible"
+          <input [(ngModel)]="test.pointsPossible" type="text" class="form-control" placeholder="Points Possible" aria-label="points possible"
             aria-describedby="basic-addon1">
         </p>
         <p>
           <label for="phone">Points Received</label>
-          <input type="text" class="form-control" placeholder="Points Received" aria-label="points received"
+          <input [(ngModel)]="test.pointsReceived" type="text" class="form-control" placeholder="Points Received" aria-label="points received"
             aria-describedby="basic-addon1">
         </p>
         <p>
           <label for="owed">Percentage</label>
-          <input type="text" class="form-control" placeholder="Percentage" aria-label="percentage"
+          <input [(ngModel)]="test.percentage" type="text" class="form-control" placeholder="Percentage" aria-label="percentage"
             aria-describedby="basic-addon1">
         </p>
         <p>
           <label for="owed">Grade</label>
-          <input  type="text" class="form-control" placeholder="Grade" aria-label="grade"
+          <input [(ngModel)]="test.grade" type="text" class="form-control" placeholder="Grade" aria-label="grade"
             aria-describedby="basic-addon1">
         </p>
       </mat-card-content>
       <mat-card-actions>
         <div class="btn-group pull-right">
-          <button mat-raised-button color="primary" class="pull-right">Save</button>
-          <button mat-raised-button color="warn">Delete</button>
+          <button mat-raised-button color="primary" class="pull-right" (click)="saveTest()">Save</button>
+          <button mat-raised-button color="warn" (click)="delete(i)">Delete</button>
         </div>
       </mat-card-actions>
     </mat-card>
